@@ -78,13 +78,29 @@
             padding-left: 20px;
             text-indent: -20px;
         }
+        .bottom-image-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .bottom-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+        .caption {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+        }
         .footer {
             margin-top: 50px;
             font-size: 0.8em;
             color: #777;
             text-align: center;
+            border-top: 1px solid #eaeaea;
+            padding-top: 20px;
         }
-        /* Mobile adjustment */
         @media (max-width: 600px) {
             .profile-section {
                 flex-direction: column;
@@ -104,7 +120,7 @@
     </header>
 
     <div class="profile-section">
-        <img src="https://via.placeholder.com/200" alt="Roee Leder" class="profile-img">
+        <img src="profile.jpg" alt="Roee Leder" class="profile-img">
         
         <div class="bio">
             <h2>About</h2>
@@ -118,7 +134,7 @@
                 I wrote a <a href="https://arxiv.org/abs/2504.18494">monograph</a> on generalized Hodge theory. I am currently working on nonlinear applications of this theory in several directions.
             </p>
             
-            <a href="https://drive.google.com/file/d/1tWSUPNF2vdf40FCCR2q3B9eLFnNipXET/view?usp=drive_link" class="cv-button">Download CV</a>
+            <a href="CV.pdf" class="cv-button" target="_blank">Download CV</a>
         </div>
     </div>
 
@@ -138,6 +154,11 @@
             <li>6. <strong>Roee Leder</strong>, <em>Cohomology for curvature</em>, in preparation.</li>
         </ul>
     </section>
+
+    <div class="bottom-image-container">
+        <img src="alps.jpg" alt="Zillertal alps" class="bottom-img">
+        <div class="caption">Zillertal alps</div>
+    </div>
 
     <div class="footer">
         <p>&copy; 2026 Roee Leder | Hosted on GitHub Pages</p>
