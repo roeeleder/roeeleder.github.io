@@ -10,17 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* General Setup */
+        /* --- General Settings --- */
         body {
             font-family: 'Roboto', sans-serif;
             color: #333;
-            max-width: 900px; /* Wider to fit side-by-side layout */
+            max-width: 1000px; /* Increased width to allow bigger images */
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 30px;
             background-color: #fff;
         }
 
-        /* Color Variable - The "Terra Cotta" Red */
         :root {
             --accent-red: #c0504d;
         }
@@ -33,64 +32,75 @@
             color: var(--accent-red);
         }
 
-        /* Header Section */
+        /* --- Header --- */
         header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
 
         h1 {
-            font-family: 'Oswald', sans-serif; /* Condensed font */
-            font-size: 3.5em;
+            font-family: 'Oswald', sans-serif;
+            font-size: 4em; /* Larger title */
             text-transform: uppercase;
             margin: 0;
-            letter-spacing: 2px;
-            color: #222;
+            letter-spacing: 1px;
+            color: #111;
+            line-height: 1;
         }
 
         .header-line {
-            width: 60%; /* Matches the line width in your image */
-            height: 6px;
+            width: 65%;
+            height: 7px;
             background-color: var(--accent-red);
-            margin: 10px auto 0 auto;
+            margin: 15px auto 0 auto;
             border: none;
         }
 
-        /* Grid Layout for Top Section (Profile + About) */
+        /* --- Section Titles --- */
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2em;
+            text-transform: uppercase;
+            color: #222;
+            margin-top: 0;
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
+
+        /* --- TOP SECTION (Profile) --- */
         .top-section {
             display: grid;
-            grid-template-columns: 1fr 1.5fr; /* Left column smaller, Right column wider */
-            gap: 50px;
+            /* 40% for image, 60% for text - gives image much more space */
+            grid-template-columns: 0.8fr 1.2fr; 
+            gap: 60px;
             align-items: start;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+        }
+
+        .profile-container {
+            width: 100%;
+            /* This forces the image to be tall and crop correctly */
+            aspect-ratio: 3/4; 
+            overflow: hidden; 
+            position: relative;
         }
 
         .profile-img {
             width: 100%;
-            max-width: 300px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            /* If your image has a white background, this blends in. 
-               If it's transparent, it looks like the cutout. */
+            height: 100%;
+            /* This zooms/crops the image to fill the box without squishing */
+            object-fit: cover; 
+            object-position: center top; /* Focus on face */
         }
 
         .about-column {
             text-align: left;
-        }
-
-        .section-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2em;
-            text-transform: uppercase;
-            color: #222;
-            margin-top: 0;
-            margin-bottom: 20px;
+            padding-top: 10px;
         }
         
-        /* Centering the "ABOUT" title specifically */
         .about-title {
-            text-align: center; 
+            text-align: right; /* Aligns "ABOUT" to right like Google Site usually does, or adjust to center */
+            margin-bottom: 30px;
         }
 
         .cv-button {
@@ -98,14 +108,15 @@
             background-color: var(--accent-red);
             color: white;
             text-align: center;
-            padding: 12px 0;
+            padding: 15px 0;
             text-decoration: none;
             font-family: 'Roboto', sans-serif;
             font-weight: 500;
-            font-size: 1.1em;
-            margin-top: 20px;
-            width: 100%; /* Full width of the column */
-            border-radius: 2px;
+            font-size: 1.2em;
+            margin-top: 30px;
+            width: 100%;
+            border-radius: 3px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .cv-button:hover {
@@ -114,61 +125,72 @@
             text-decoration: none;
         }
 
-        /* The Divider Line */
+        /* --- Divider --- */
         .divider {
-            border-top: 2px solid var(--accent-red);
-            margin: 60px 0;
-            opacity: 0.6;
+            border-top: 1px solid var(--accent-red);
+            margin: 0 0 60px 0;
+            opacity: 0.5;
         }
 
-        /* Bottom Section (Publications + Alps Image) */
+        /* --- BOTTOM SECTION (Alps) --- */
         .bottom-section {
             display: grid;
-            grid-template-columns: 1.5fr 1fr; /* Text wider, Image narrower */
-            gap: 40px;
+            /* 55% text, 45% image - Makes Alps image significantly bigger */
+            grid-template-columns: 1.2fr 1fr; 
+            gap: 50px;
+            align-items: start;
         }
 
         .publications-list {
             list-style: none;
             padding: 0;
             font-size: 0.95em;
+            line-height: 1.6;
         }
 
         .publications-list li {
-            margin-bottom: 18px;
-            padding-left: 20px;
-            text-indent: -20px;
+            margin-bottom: 20px;
+            padding-left: 25px;
+            text-indent: -25px;
         }
 
         .alps-container {
-            text-align: center;
+            width: 100%;
         }
 
         .alps-img {
             width: 100%;
             height: auto;
             display: block;
+            border-radius: 2px;
+            /* Ensure it fills width */
+            min-height: 300px;
+            object-fit: cover;
         }
 
         .caption {
             font-style: italic;
-            color: #666;
+            color: #777;
             margin-top: 10px;
             text-align: right;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
-        /* Mobile Responsiveness */
+        /* --- Mobile --- */
         @media (max-width: 768px) {
             .top-section, .bottom-section {
-                grid-template-columns: 1fr; /* Stack vertically on phones */
-                gap: 30px;
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             .header-line {
                 width: 80%;
             }
-            .profile-img {
-                max-width: 250px;
+            .about-title {
+                text-align: center;
+            }
+            .profile-container {
+                max-width: 300px;
+                margin: 0 auto;
             }
         }
     </style>
@@ -181,7 +203,7 @@
     </header>
 
     <div class="top-section">
-        <div>
+        <div class="profile-container">
             <img src="profile.jpg.jpg" alt="Roee Leder" class="profile-img">
         </div>
 
